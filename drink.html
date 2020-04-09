@@ -163,7 +163,7 @@
 
         body {
             color: white;
-            background-color: rgba(0,0,0,0.6);
+            background-color: black;
             margin:0px;
         }
 
@@ -177,7 +177,7 @@
         }
 
         .glide-con {
-            transform: scaleY(0);
+            transform: scale(0);
             transition: 0.3s ease;
             display: flex;
             height: calc(100vh);
@@ -186,14 +186,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.5);
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .glide-con.active {
-            transform: scaleY(1);
+            transform: scale(1);
         }
         .glide{
             position: absolute;
@@ -208,7 +208,7 @@
             right: 2vh;
             top: 2vw;
             font-weight: bold;
-            padding:10px 30px;
+            padding: 2vw 2vw;
             border: 1px solid white;
             border-radius: 5px;
             font-family: Arial, Helvetica, sans-serif;
@@ -222,7 +222,7 @@
         }
         .image-con img{
             width: 100%;
-            margin: 15px 0px 0px;
+            margin: 15px 0px;
         }
         #zoom{
             position: absolute;
@@ -234,9 +234,6 @@
         #zoom img{
             width: 100%;
             height: 100%;
-        }
-        .glide__slides{
-            border:1px solid white;
         }
     </style>
 </head>
@@ -271,24 +268,23 @@
                         style="width: 6vw; height: 6vw;" /></button>
             </div> -->
         </div>
-        <p id="close" onclick="closethat()">Close</p>
+        <p id="zoom" onclick="zoom()"><img src="/img/in.png"></p>
     </div>
     <div class="image-con">
 
     </div>
     <script>
-        let t = JSON.parse(httpGet('/food-count')).count
+        let t = JSON.parse(httpGet('/drink-count')).count
 
         for (i = 0; i < t; i++) {
             let node = document.createElement('li');
             node.classList.add('glide__slide');
             let img = document.createElement('img');
-            img.setAttribute('src', `/img/food/${i + 1}.jpg`);
+            img.setAttribute('src', `/img/drink/${i + 1}.jpg`);
             node.appendChild(img);
             document.querySelector('#combine').appendChild(node);
             let img2 = document.createElement('img');
-            img2.setAttribute('src', `/img/food/${i + 1}.jpg`);
-            img2.setAttribute('onclick', `trigger(${i})`);
+            img2.setAttribute('src', `/img/drink/${i + 1}.jpg`);
             document.querySelector('.image-con').appendChild(img2);
         }
 
@@ -308,7 +304,7 @@
             return new Glide('.glide', { startAt: start })
         }
 
-        generate(0).mount().disable();
+        generate(0).mount()
 
     </script>
 
