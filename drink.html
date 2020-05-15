@@ -235,6 +235,9 @@
             width: 100%;
             height: 100%;
         }
+        .pdf-con iframe{
+            height: 100vh;
+        }
     </style>
 </head>
 
@@ -270,8 +273,12 @@
         </div>
         <p id="zoom" onclick="zoom()"><img src="/img/in.png"></p>
     </div>
-    <div class="image-con">
+    <div class="image-con" style="display:none;">
 
+    </div>
+    <div class="pdf-con">
+        <iframe src="/img/drinkmenu.pdf" width="100%" height="100vh">
+    </iframe>
     </div>
     <script>
         let t = JSON.parse(httpGet('/drink-count')).count
