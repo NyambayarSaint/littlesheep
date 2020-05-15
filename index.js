@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/drink', (req, res) => {
-    res.sendFile(path.join(__dirname + '/drink.html'))
+    res.sendFile(path.join(__dirname + '/img/drinkmenu.pdf'))
 });
 
 app.get('/food-count', (req, res) => {
