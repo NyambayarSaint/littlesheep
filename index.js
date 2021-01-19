@@ -14,6 +14,10 @@ app.get('/drink', (req, res) => {
     res.sendFile(path.join(__dirname + '/img/drinkmenu.pdf'))
 });
 
+app.get('/delivery', (req, res) => {
+    res.sendFile(path.join(__dirname + '/delivery.html'))
+});
+
 app.get('/food-count', (req, res) => {
     fs.readdir('img/food', (error, files) => {
         res.status(200).json({ count: files.length })
@@ -22,6 +26,12 @@ app.get('/food-count', (req, res) => {
 
 app.get('/drink-count', (req, res) => {
     fs.readdir('img/drink', (error, files) => {
+        res.status(200).json({ count: files.length })
+    });
+});
+
+app.get('/delivery-count', (req, res) => {
+    fs.readdir('img/delivery', (error, files) => {
         res.status(200).json({ count: files.length })
     });
 });
