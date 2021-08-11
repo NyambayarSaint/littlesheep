@@ -18,6 +18,10 @@ app.get('/delivery', (req, res) => {
     res.sendFile(path.join(__dirname + '/delivery.html'))
 });
 
+app.get('/hardyswine', (req, res) => {
+    res.sendFile(path.join(__dirname + '/hardyswine.html'))
+});
+
 app.get('/food-count', (req, res) => {
     fs.readdir('img/food', (error, files) => {
         res.status(200).json({ count: files.length })
