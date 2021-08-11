@@ -24,6 +24,12 @@ app.get('/food-count', (req, res) => {
     });
 });
 
+app.get('/hardyswine-count', (req, res) => {
+    fs.readdir('img/hardyswine', (error, files) => {
+        res.status(200).json({ count: files.length })
+    });
+});
+
 app.get('/drink-count', (req, res) => {
     fs.readdir('img/drink', (error, files) => {
         res.status(200).json({ count: files.length })
